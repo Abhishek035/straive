@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON to HTML Table</title>
+</head>
+<body>
+
+  <h1>Generated HTML Table</h1>
+  <div id="table-container">Table will render here...</div>
+
+  <script type="module">
+    // Replace with the correct path to json2html.js if hosted remotely
+    import json2html from "./json2html.js"; 
+
+    // Sample data
+    const data = [
+      { Name: "Alice", Age: 25 },
+      { Name: "Bob", Age: 30 },
+      { Name: "Charlie", Age: 35, Gender: "M" }
+    ];
+
+    // Generate HTML table
+    try {
+      console.log("Calling json2html with data:", data);
+      const tableHtml = json2html(data);
+      console.log("Generated table HTML:", tableHtml);
+
+      // Render the table inside the div with id="table-container"
+      document.getElementById('table-container').innerHTML = tableHtml;
+      console.log("Table rendered successfully");
+    } catch (error) {
+      console.error("Error generating or rendering the table:", error);
+    }
+  </script>
+</body>
+</html>
